@@ -6,7 +6,7 @@ This repository contains all the necessary files to replicate the simulation stu
 |simulation_part1.R|	R-script to execute the first part of the simulation study. In the first part, simulation conditions are created and the relation between bias and deviance is determined for every condition.|
 |simulation_part2.R|	R-script to generate data sets for every condition, and apply the sample size approach to these data sets (using the relation between bias and deviance obtained from the first step)  |
 |process_results.R| R-script to extract the relevant features from the results, and generate the tables and plots presented in the manuscript. |
-|/functions|	Folder containing the functions used throughout the R scripts. |
+|/functions|	Folder containing the functions used throughout the simulation study. |
 |/fictonal_example|	Folder containing the R-scripts for the fictional example presented in the manuscript. We provide an example data set, a script to determine the deviance threshold for this example script, and a script to apply the sample size to the example data set. |
 
 Software requirements are [R](http://www.r-project.org}) and the following R-packages:
