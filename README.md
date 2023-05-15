@@ -21,4 +21,4 @@ Software requirements are [R](http://www.r-project.org}) and the following R-pac
 - ['dplyr'](https://cran.r-project.org/web/packages/dplyr/index.html) (version 1.0.10) was used for data manipulation. 
 - ['ggpubr'](https://cran.r-project.org/web/packages/ggpubr/index.html) (version 0.5.0) was used for getting the plots in a grid. 
 
-The entire research archive is pubicly available on Github, under responsibility of Lotte Mensink. For any help with the files in this archive, please contact lottemensink1998@gmail.com. 
+The entire research archive is publicly available on Github, under responsibility of Lotte Mensink. For any help with the files in this archive, please contact lottemensink1998@gmail.com. 
