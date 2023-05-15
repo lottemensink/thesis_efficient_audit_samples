@@ -1,13 +1,17 @@
 # Simulation Study: Efficiently Selecting Representative Audit Samples
-This repository contains all the necessary files to replicate the simulation study for the manuscript “Efficiently Selecting Representative Audit Samples”.
+This repository contains all the necessary files to replicate the simulation study for the manuscript “Efficiently Selecting Representative Audit Samples”. The goal of the simulation study is to demonstrate application and investigate performance of the sample size approach, a method for efficient audit sample selection elaborately introduced in the manuscript.
+
+The data used for this study are generated within the simulation study scripts. Because all scripts are seeded, one can generate the exact same data as was used to execute the study, and thereby obtain the exact same results. 
+
+Ethical approval for the simulation study was granted by the FETC (FETC-22-1861). 
 
 |Files/Folders|	Description|
 |-------------|------------|
 |simulation_part1.R|	R-script to execute the first part of the simulation study. In the first part, simulation conditions are created and the relation between bias and deviance is determined for every condition.|
-|simulation_part2.R|	R-script to generate data sets for every condition, and apply the sample size approach to these data sets (using the relation between bias and deviance obtained from the first step)  |
-|process_results.R| R-script to extract the relevant features from the results, and generate the tables and plots presented in the manuscript. |
+|simulation_part2.R|	R-script to execute the second part of the simulation study. In the second part, we generate data sets for every condition, and apply the sample size approach to these data sets (using the relation between bias and deviance obtained from the first part of the simulation study)  |
+|process_results.R| R-script to extract the relevant features from the results of the entire simulation study, and generate the tables and plots presented in the manuscript. |
 |/functions|	Folder containing the functions used throughout the simulation study. |
-|/fictonal_example|	Folder containing the R-scripts for the fictional example presented in the manuscript. We provide an example data set, a script to determine the deviance threshold for this example script, and a script to apply the sample size to the example data set. |
+|/fictonal_example|	Folder containing the R-scripts for the fictional example presented in the manuscript. We provide an example data set (example_data.csv), a script to determine the deviance threshold for this example data set, and a script to subsequently apply the sample size to the example data set. It is important to emphasize provided example data is made up, purely for illustrative purposes. |
 
 Software requirements are [R](http://www.r-project.org}) and the following R-packages:
 - [‘nloptr’](https://cran.r-project.org/web/packages/nloptr/index.html) (version 2.0.3) was used to solve the constrained optimization model.
@@ -15,4 +19,4 @@ Software requirements are [R](http://www.r-project.org}) and the following R-pac
 - ['ggplot2'](https://cran.r-project.org/web/packages/ggplot2/index.html) (version 3.4.0) was used for plotting.
 - ['dplyr'](https://cran.r-project.org/web/packages/dplyr/index.html) (version 1.0.10) was used for data manipulation. 
 
-For any help with the files in this archive, please contact Lotte Mensink (lottemensink1998@gmail.com)
+The entire research archive is pubicly available on Github, under responsibility of Lotte Mensink. For any help with the files in this archive, please contact lottemensink1998@gmail.com. 
