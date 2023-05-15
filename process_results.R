@@ -7,6 +7,7 @@ source("functions/function_calc_dev_threshold.R")
 
 library(tidyverse)
 library(quantreg)
+library(ggpubr)
 
 # amounts of maximum tolerable bias that were used to determine deviance threshold
 max_bias <- c(0.05, 0.02, 0.01)
