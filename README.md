@@ -16,6 +16,7 @@ The data used for this study are generated within the simulation study scripts. 
 Software requirements are [R](http://www.r-project.org}) and the following R-packages:
 - [‘nloptr’](https://cran.r-project.org/web/packages/nloptr/index.html) (version 2.0.3) was used to solve the constrained optimization model.
 - ['hitandrun'](https://cran.r-project.org/web/packages/hitandrun/index.html) (version 0.5-6) was used to generate random probabilities.
+- ['extraDistr'](https://cran.r-project.org/web/packages/extraDistr/index.html) (version 1.9.1) was used to sample from a multivariate hypergeometric distribution. 
 - ['ggplot2'](https://cran.r-project.org/web/packages/ggplot2/index.html) (version 3.4.0) was used for plotting.
 - ['dplyr'](https://cran.r-project.org/web/packages/dplyr/index.html) (version 1.0.10) was used for data manipulation. 
 - ['ggpubr'](https://cran.r-project.org/web/packages/ggpubr/index.html) (version 0.5.0) was used for getting the plots in a grid. 
