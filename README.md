@@ -1,9 +1,9 @@
 # Simulation Study: Efficiently Selecting Representative Audit Samples
 This repository contains all the necessary files to replicate the simulation study for the manuscript “Efficiently Selecting Representative Audit Samples”. The goal of the simulation study is to demonstrate application and investigate performance of the sample size approach, a method for efficient audit sample selection elaborately introduced in the manuscript.
 
-The data used for this study are generated within the simulation study scripts. Because all scripts are seeded, one can generate the exact same data as was used to execute the study. By executing simulation_part1.R, and then simulation_part2.R, the results presented in the manuscript can be exactly replicated. 
-
 Ethical approval for the simulation study was granted by the FETC (FETC-22-1861). 
+
+The data used for this study are generated within the simulation study scripts. Because all scripts are seeded, one can generate the exact same data as was used to execute the study. By executing simulation_part1.R, and then simulation_part2.R, the results presented in the manuscript can be exactly replicated. Here follows an overview of all files and their purpose in the research archive:
 
 |Files/Folders|	Description|
 |-------------|------------|
