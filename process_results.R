@@ -1,3 +1,4 @@
+# load results, functions and packages
 load("workspaces/results_simulation_part1.RData")
 load("workspaces/results_simulation_part2.RData")
 load("workspaces/conditions.RData")
@@ -7,6 +8,7 @@ source("functions/function_calc_dev_threshold.R")
 library(tidyverse)
 library(quantreg)
 
+# amounts of maximum tolerable bias that were used to determine deviance threshold
 max_bias <- c(0.05, 0.02, 0.01)
 
 # initialize the vectors for all the results to save 
@@ -20,10 +22,12 @@ bias_pyw_before <- c()
 bias_pyw <- c()
 bias_exc <- c()
 
+# extract relevant results per condition
 for (i in 1:nrow(sim_cons)){
   
   bias_dev_data <- results[[i]]
   
+  # transform the data to make it suitable for deviance threshold calculation
   data_pw <- bias_dev_data %>% pivot_longer(cols = c("bias_pw1", "bias_pw2", "bias_pw3"), 
                                             values_to = "bias_pw") %>%  select(deviance, bias_pw)
   data_pyw <- bias_dev_data %>% pivot_longer(cols = c("bias_py1w1", "bias_py2w2", "bias_py3w3"), 
@@ -32,39 +36,46 @@ for (i in 1:nrow(sim_cons)){
                                                        "bias_py3w2", "bias_py1w3", "bias_py2w3"), values_to = "bias_pynw") %>%
     select(deviance, bias_pynw)
   
+  # calculate bias in P(W = w) before applying the sample size approach
   bias_pw_before[i] <- ((mean(abs(bias_dev_data$bias_pw1)) +
     mean(abs(bias_dev_data$bias_pw2)) + mean(abs(bias_dev_data$bias_pw3)))/3)
   
+  # calculate bias in P(Y = y | W = w) before applying the sample size approach
   bias_pyw_before[i] <- ((mean(abs(bias_dev_data$bias_py1w1)) + mean(abs(bias_dev_data$bias_py1w2)) 
     + mean(abs(bias_dev_data$bias_py1w3))+ mean(abs(bias_dev_data$bias_py2w1)) + mean(abs(bias_dev_data$bias_py2w2)) + 
     mean(abs(bias_dev_data$bias_py2w3))+ mean(abs(bias_dev_data$bias_py3w1)) + mean(abs(bias_dev_data$bias_py3w2)) + 
     mean(abs(bias_dev_data$bias_py3w3)))/9)
   
-  
+  # extract relevant results for every amount of maximum tolerable bias
   for (j in 1:length(max_bias)){
     
     sim_data <- as.data.frame(results_part2[[(j-1)*12 + i]])
     sim_data <- na.omit(sim_data)
     
+    # calculate deviance thresholds for every estimand and select the most conservative deviance threshold
     dev_threshold_pw <- calc_dev_threshold(data_pw, max_bias = max_bias[j], tau = 1)
     dev_threshold_pyw <- calc_dev_threshold(data_pyw, max_bias = max_bias[j], tau = 1)
     dev_threshold_pynw <- calc_dev_threshold(data_pynw, max_bias = max_bias[j], tau = 1)
     
     dev_thresholds[(j-1)*12 + i] <- min(dev_threshold_pw, dev_threshold_pyw, dev_threshold_pynw)
     
+    # extract final audit sample size characteristics
     mean_finalaudit[(j-1)*12 + i] <- mean(sim_data$auditsize)
     mean_dplus[(j-1)*12 + i] <- mean(sim_data$dplus)
     mean_dmin[(j-1)*12 + i] <- mean(sim_data$dmin)
     
+    # calculate bias in P(W = w) in final audit sample
     bias_pw[(j-1)*12 + i] <- ((mean(abs(sim_data$bias_pw1)) +
       mean(abs(sim_data$bias_pw2)) + mean(abs(sim_data$bias_pw3)))/3)
 
+    # calculate bias in P(Y = y | W = w) in final audit sample
     bias_pyw[(j-1)*12 + i] <- ((mean(abs(sim_data$bias_py1w1)) + mean(abs(sim_data$bias_py1w2)) 
       + mean(abs(sim_data$bias_py1w3))+ mean(abs(sim_data$bias_py2w1)) + mean(abs(sim_data$bias_py2w2)) + 
       mean(abs(sim_data$bias_py2w3))+ mean(abs(sim_data$bias_py3w1)) + mean(abs(sim_data$bias_py3w2)) + 
       mean(abs(sim_data$bias_py3w3)))/9)
     
-    bias_exc[(j-1)*12 + i] <- round(sum(abs(sim_data[, 8:19] > max_bias[j]))/(nrow(sim_data)*12), 3)
+    # calculate proportion of cases in which maximum tolerable bias was exceeded
+    bias_exc[(j-1)*12 + i] <- sum(abs(sim_data[, 8:19] > max_bias[j]))/(nrow(sim_data)*12)
   }
   
 }
