@@ -11,7 +11,7 @@ The data used for this study are generated within the simulation study scripts. 
 |simulation_part2.R|	R-script to execute the second part of the simulation study. In the second part, we generate data sets for every condition, and apply the sample size approach to these data sets (using the relation between bias and deviance obtained from the first part of the simulation study)  |
 |process_results.R| R-script to extract the relevant features from the results of the entire simulation study, and generate the tables and plots presented in the manuscript. |
 |/functions|	Folder containing the functions used throughout the simulation study. |
-|/fictonal_example|	Folder containing the R-scripts for the fictional example presented in the manuscript. We provide an example data set (example_data.csv), a script to determine the deviance threshold for this example data set, and a script to subsequently apply the sample size to the example data set. It is important to emphasize provided example data is made up, purely for illustrative purposes. |
+|/fictonal_example|	Folder containing the R-scripts for the fictional example presented in the manuscript. We provide an example data set (example_data.csv), a script to determine the deviance threshold for this example data set, and a script to subsequently apply the sample size to the example data set. It is important to emphasize that the provided example data is made up, purely for illustrative purposes. |
 
 Software requirements are [R](http://www.r-project.org}) and the following R-packages:
 - [‘nloptr’](https://cran.r-project.org/web/packages/nloptr/index.html) (version 2.0.3) was used to solve the constrained optimization model.
