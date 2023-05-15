@@ -14,7 +14,7 @@ The data used for this study are generated within the simulation study scripts. 
 |/fictonal_example|	Folder containing the R-scripts for the fictional example presented in the manuscript. We provide an example data set (example_data.csv), a script to determine the deviance threshold for this example data set, and a script to subsequently apply the sample size to the example data set. It is important to emphasize that the provided example data is made up, purely for illustrative purposes. |
 
 Software requirements are [R](http://www.r-project.org}) and the following R-packages:
-- [‘nloptr’](https://cran.r-project.org/web/packages/nloptr/index.html) (version 2.0.3) was used to solve the constrained optimization model.
+- [‘nloptr’](https://cran.r-project.org/web/packages/nloptr/index.html) (version 2.0.3) was used to solve the constrained optimization problem.
 - ['hitandrun'](https://cran.r-project.org/web/packages/hitandrun/index.html) (version 0.5-6) was used to generate random probabilities.
 - ['extraDistr'](https://cran.r-project.org/web/packages/extraDistr/index.html) (version 1.9.1) was used to sample from a multivariate hypergeometric distribution. 
 - ['ggplot2'](https://cran.r-project.org/web/packages/ggplot2/index.html) (version 3.4.0) was used for plotting.
